@@ -71,14 +71,14 @@ Creates a new toast pop-up message on the screen. Pass a string `message` to spe
 Timeout constant is the number of milliseconds for message to stay, so
 `new Toast("test", Toast.TYPE_ERROR, 10000)` message would stay for 10 seconds.
 
-+ ##### TIME_SHORT = 2 seconds
-+ ##### TIME_NORMAL = 4 seconds
-+ ##### TIME_LONG = 8 seconds
-+ ##### TYPE_INFO = "info"
-+ ##### TYPE_MESSAGE = "message"
-+ ##### TYPE_WARNING = "warning"
-+ ##### TYPE_ERROR = "error"
-+ ##### TYPE_DONE = "done"
++ TIME_SHORT = 2 seconds
++ TIME_NORMAL = 4 seconds
++ TIME_LONG = 8 seconds
++ TYPE_INFO = "info"
++ TYPE_MESSAGE = "message"
++ TYPE_WARNING = "warning"
++ TYPE_ERROR = "error"
++ TYPE_DONE = "done"
 
 ##### configureToasts(options)
 Allows to configure some options of the toast. The available optional options are listed below:
