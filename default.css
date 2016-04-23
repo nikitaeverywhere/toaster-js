@@ -1,0 +1,29 @@
+.toast {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+  .toast > .body {
+    font-size: large;
+    margin: 1em;
+    padding: .5em;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+    .toast > .body.info {
+      background: rgba(255, 245, 195, 0.8); }
+    .toast > .body.warning {
+      background: rgba(255, 183, 99, 0.8); }
+      .toast > .body.warning > .icon {
+        color: white; }
+    .toast > .body.error {
+      color: white;
+      text-shadow: 0 0 1px black;
+      background: rgba(255, 86, 86, 0.8); }
+    .toast > .body.done {
+      background: rgba(147, 255, 157, 0.8); }
+

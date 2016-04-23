@@ -1,0 +1,55 @@
+//! This file include default toast styles.
+
+@mixin transition ($options...) {
+    -webkit-transition: $options;
+    -moz-transition: $options;
+    -o-transition: $options;
+    transition: $options;
+}
+
+$messagesAlpha: .8;
+
+.toast {
+
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    @include transition(all .3s ease);
+
+    > .body {
+
+        font-size: large;
+        margin: 1em;
+        padding: .5em;
+        border-radius: 3px;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+
+        &.info {
+            background: rgba(#FFF5C3, $messagesAlpha);
+        }
+
+        &.warning {
+
+            background: rgba(#FFB763, $messagesAlpha);
+
+            > .icon {
+                color: white;
+            }
+
+        }
+
+        &.error {
+            color: white;
+            text-shadow: 0 0 1px black;
+            background: rgba(#FF5656, $messagesAlpha);
+        }
+
+        &.done {
+            background: rgba(#93FF9D, $messagesAlpha);
+        }
+
+    }
+
+}
