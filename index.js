@@ -10,7 +10,7 @@ Toast.TIME_SHORT = 2000;
 Toast.TIME_NORMAL = 4000;
 Toast.TIME_LONG = 8000;
 
-let ORIGIN_TOP;
+let ORIGIN_TOP = 0;
 
 /**
  * Allows you to configure Toasts options during the application setup.
