@@ -1,6 +1,6 @@
 {
   "name": "toaster-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The vanilla JavaScript ES6 minimalistic toast pup-up messages module for your project.",
   "main": "index.js",
   "repository": {
@@ -16,7 +16,8 @@
     "hint",
     "module",
     "pop-up",
-    "message"
+    "message",
+    "notification"
   ],
   "author": "ZitRo",
   "license": "MIT",
