@@ -8,7 +8,7 @@
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease; }
   .toast > .body {
-    font-size: large;
+    font-size: initial;
     margin: 1em;
     padding: .5em;
     border-radius: 3px;
