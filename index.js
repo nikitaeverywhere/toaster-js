@@ -10,22 +10,23 @@ Toast.TIME_SHORT = 2000;
 Toast.TIME_NORMAL = 4000;
 Toast.TIME_LONG = 8000;
 
-let ORIGIN_TOP;
+let options = {
+    topOrigin: 0
+};
 
 /**
  * Allows you to configure Toasts options during the application setup.
- * @param options
+ * @param newOptions
  */
-export function configureToasts (options = {}) {
-    if (typeof options["topOrigin"] === "number")
-        ORIGIN_TOP = options["topOrigin"];
+export function configureToasts (newOptions = {}) {
+    options = Object.assign(options, newOptions);
 }
 
 /**
  * On-screen toast message.
- * @param {string} text
+ * @param {string} text - Message text.
  * @param {string} [type] - Toast.TYPE_*
- * @param {number} [timeout]
+ * @param {number} [timeout] - Toast.TIME_*
  * @constructor
  */
 export function Toast (text = `No text!`, type = Toast.TYPE_INFO, timeout = Toast.TIME_LONG) {
@@ -54,9 +55,9 @@ Toast.prototype.attach = function (position) {
     this.position = position;
     this.updateVisualPosition();
     document.body.appendChild(this.element);
-    setTimeout(() => {
+    requestAnimationFrame(() => {
         this.element.style.opacity = 1;
-    }, 0);
+    });
 
     return this.element.offsetHeight;
 
@@ -74,12 +75,13 @@ Toast.prototype.seek = function (delta) {
 };
 
 /**
- * todo: upgrade to transform
  * @private
  */
 Toast.prototype.updateVisualPosition = function () {
 
-    this.element.style.bottom = -ORIGIN_TOP + this.position + "px";
+    requestAnimationFrame(() => {
+        this.element.style.bottom = -options.topOrigin + this.position + "px"
+    });
 
 };
 
@@ -89,9 +91,13 @@ Toast.prototype.detach = function () {
 
     if (!this.element.parentNode) return;
 
-    this.element.style.opacity = 0;
+    requestAnimationFrame(() => {
+        this.element.style.opacity = 0;
+    });
     setTimeout(() => {
-        self.element.parentNode.removeChild(self.element);
+        requestAnimationFrame(() => {
+            self.element.parentNode.removeChild(self.element);
+        });
     }, 300);
 
 };

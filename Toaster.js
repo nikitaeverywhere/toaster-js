@@ -1,13 +1,14 @@
-//! Do not import this module in the application! Import index.js instead.
+//! Do not import this module to the application! Import index.js instead.
 
 /**
  * @type {Toaster}
  */
-export var toaster = new Toaster();
+export let toaster = new Toaster();
 
 /**
  * Toasts controller. Controls toasts that appear on the screen.
  * @constructor
+ * @private
  */
 function Toaster () {
 
@@ -24,16 +25,18 @@ function Toaster () {
  */
 Toaster.prototype.push = function (toast, timeout) {
 
-    let height = toast.attach(0),
-        self = this;
+    requestAnimationFrame(() => {
+        let height = toast.attach(0),
+            self = this;
 
-    this.toasts.forEach((toast) => {
-        toast.seek(height);
+        this.toasts.forEach((toast) => {
+            toast.seek(height);
+        });
+        this.toasts.push(toast);
+
+        setTimeout(() => {
+            self.toasts.splice(0, 1)[0].detach();
+        }, timeout);
     });
-    this.toasts.push(toast);
-
-    setTimeout(() => {
-        self.toasts.splice(0, 1)[0].detach();
-    }, timeout);
 
 };

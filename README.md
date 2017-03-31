@@ -1,7 +1,10 @@
-# Toast
+# Toaster-JS
 
 The vanilla JavaScript ES6 minimalistic easy-to-use toast pup-up messages module.
 The solution which "just works" – add the module to your project and go further.
+
+Supported by all major browsers and IE 10+ (requestAnimationFrame support). Safe to use with ReactJS
+and other virtual-dom frameworks.
 
 Preview
 -------
@@ -11,45 +14,40 @@ Preview
 Features
 --------
 
-+ Simple animated customizable toast pop-ups for any design;
++ Simple CSS-animated customizable toast pop-ups for any design;
 + Toasts have different types and apply any style you need;
-+ Toasts appear and disappear by specifying optional timeout;
-+ All you need to create a first toast is to write `new Toast("test")` in JavaScript.
++ Toasts appear and disappear by specifying optional timeout.
 
-Installation
-------------
-
-You can just take ready-to-use `index.js` with `Toaster.js` file from this repository.
-But the better way would be to clone this repository as a git submodule into your project:
+Installation & Usage
+--------------------
 
 ```bash
-cd your/project/directory
-git submodule add https://github.com/ZitRos/Toast.git source/client/js/Toast
+npm install toaster-js --save-dev
 ```
 
-**NOTE:** `your/project/directory` is the directory **of your project**, `source/js/Toast`
-is the sub-directory **in your project** where this repository will be cloned.
+```javascript
+import { Toast } from "toaster-js";
 
-Usage
------
-
-This simplest example requires `Toast` module and creates a toast in JavaScript.
-
-```js
-import { Toast } from "./Toast"; // the directory you cloned AutoGrid to, source/client/js/Toast
-
-new Toast("Hello!");
-new Toast("Error!", Toast.TYPE_ERROR, Toast.TIME_NORMAL);
+new Toast("Welcome!");
+new Toast("There is no more toasts!", Toast.TYPE_ERROR, Toast.TIME_NORMAL);
 ```
 
-This will create toast with the message `Hello!` along with all others when your application starts.
+You can import pre-defined css/scss styles for your toasts. 
+There are two files (css/scss) available.
 
-Styling
--------
+```javascript
+import "toaster-js/default.scss"; // or @import "../node_modules/toaster-js/default.scss"; from SCSS
+```
 
-You can style toast message by yourself using CSS. Default CSS and SCSS templates are happy to help
-you in `default.css` and `default.scss` files. When using SCSS, just `@import` the file from the
-Toast project folder.
+You can set up additional options if you need. See the API below.
+
+```javascript
+import { configureToasts } from "toaster-js";
+
+configureToasts({
+    topOrigin: 0
+});
+```
 
 API
 ---

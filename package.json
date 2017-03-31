@@ -1,0 +1,27 @@
+{
+  "name": "toaster-js",
+  "version": "1.0.0",
+  "description": "The vanilla JavaScript ES6 minimalistic toast pup-up messages module for your project.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZitRos/toaster-js.git"
+  },
+  "keywords": [
+    "toast",
+    "toasts",
+    "javascript",
+    "toaster",
+    "alert",
+    "hint",
+    "module",
+    "pop-up",
+    "message"
+  ],
+  "author": "ZitRo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZitRos/toaster-js/issues"
+  },
+  "homepage": "https://github.com/ZitRos/toaster-js#readme"
+}
