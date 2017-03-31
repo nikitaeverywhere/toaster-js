@@ -1,6 +1,6 @@
 # Toaster-JS
 
-[![npm](https://img.shields.io/npm/v/react-xmasonry.svg)](https://www.npmjs.com/package/toaster-js)
+[![npm](https://img.shields.io/npm/v/toaster-js.svg)](https://www.npmjs.com/package/toaster-js)
 [![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)](http://npm.anvaka.com/#/view/2d/toaster-js)
 [![npm](https://img.shields.io/npm/dm/toaster-js.svg)](https://www.npmjs.com/package/toaster-js)
 [![License](https://img.shields.io/github/license/zitros/toaster-js.svg)](LICENSE)
