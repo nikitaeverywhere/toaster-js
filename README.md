@@ -1,5 +1,10 @@
 # Toaster-JS
 
+[![npm](https://img.shields.io/npm/v/react-xmasonry.svg)](https://www.npmjs.com/package/toaster-js)
+[![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)](http://npm.anvaka.com/#/view/2d/toaster-js)
+[![npm](https://img.shields.io/npm/dm/toaster-js.svg)](https://www.npmjs.com/package/toaster-js)
+[![License](https://img.shields.io/github/license/zitros/toaster-js.svg)](LICENSE)
+
 The vanilla JavaScript ES6 minimalistic easy-to-use toast pup-up messages module.
 The solution which "just works" – add the module to your project and go further.
 
@@ -64,10 +69,11 @@ API
 + [configureToasts(options)](#configuretoastsoptions)
 
 ##### Toast(message, type, timeout)
-Creates a new toast pop-up message on the screen. Pass a string `message` to specify the message,
-`type` = `Toast.TYPE_*` to specify the type and `timeout` = `Toast.TIME_*` to specify the timeout.
-Timeout constant is the number of milliseconds for message to stay, so
-`new Toast("test", Toast.TYPE_ERROR, 10000)` message would stay for 10 seconds.
+Creates a new toast pop-up message on the screen. Pass a string `message` to specify the message 
+text, `type` = `Toast.TYPE_*` to specify the type and `timeout` = `Toast.TIME_*` to specify the 
+timeout. Timeout constants are the numbers of milliseconds for message to stay on screen. For 
+example, `new Toast("Baked!", Toast.TYPE_ERROR, 10000)` message will stay on the screen for 10 
+seconds.
 
 + TIME_SHORT = 2 seconds
 + TIME_NORMAL = 4 seconds
@@ -83,6 +89,6 @@ Allows to configure some options of the toast. The available optional options ar
 
 ```js
 configureToasts({
-    topOrigin: -100 // [default=0] Y-axis origin of the message. 
+    topOrigin: -100 // [default=0] Y-axis origin of the messages. 
 });
 ```
