@@ -3,6 +3,7 @@
   right: 0;
   bottom: 0;
   z-index: 10000;
+  max-width: 100%;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;

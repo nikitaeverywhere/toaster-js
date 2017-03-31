@@ -15,6 +15,7 @@ $messagesAlpha: .8;
     right: 0;
     bottom: 0;
     z-index: 10000;
+    max-width: 100%;
     @include transition(all .3s ease);
 
     > .body {
