@@ -62,6 +62,14 @@
             width: 100%;
             box-sizing: border-box;
         }
+
+        .toast {
+            pointer-events: none;
+        }
+
+        .toast .body {
+            pointer-events: all;
+        }
     </style>
     <script type="text/javascript">
         function init () {
@@ -80,7 +88,7 @@
         <div>
             <div>
                 <h1>Toaster-JS Demo</h1>
-                <div class="sub">Find more on <a href="https://www.npmjs.com/package/toaster-js">NPM</a>.</div>
+                <div class="sub">Find more on <a href="https://www.npmjs.com/package/toaster-js" target="_blank">NPM</a>.</div>
                 <a href="https://github.com/ZitRos/toaster-js" target="_blank">
                     <img src="https://img.shields.io/github/stars/zitros/toaster-js.svg?style=social&amp;label=Star" alt="npm"/>
                 </a>
@@ -101,7 +109,7 @@
                     Timeout:
                     <input id="timeoutInput" type="number" value="8000"/>
                 </label>
-                <button id="showButton">Show alert</button>
+                <button id="showButton">Show Toast!</button>
             </div>
         </div>
     </div>
