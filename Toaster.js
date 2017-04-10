@@ -26,8 +26,7 @@ function Toaster () {
 Toaster.prototype.push = function (toast, timeout) {
 
     requestAnimationFrame(() => {
-        let height = toast.attach(0),
-            self = this;
+        let height = toast.attach(0);
 
         this.toasts.forEach((toast) => {
             toast.seek(height);
@@ -35,7 +34,10 @@ Toaster.prototype.push = function (toast, timeout) {
         this.toasts.push(toast);
 
         setTimeout(() => {
-            self.toasts.splice(0, 1)[0].detach();
+            let index = this.toasts.indexOf(toast),
+                tst = this.toasts.splice(index, 1)[0];
+            tst.detach();
+            this.toasts.slice(0, index).forEach(t => t.seek(-height));
         }, timeout);
     });
 

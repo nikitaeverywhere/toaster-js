@@ -2,3 +2,7 @@
 .idea
 .npmignore
 *.iml
+webpack.config.js
+node_modules/
+docs/
+index.html

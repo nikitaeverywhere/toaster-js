@@ -1,11 +1,15 @@
 {
   "name": "toaster-js",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "The vanilla JavaScript ES6 minimalistic toast pup-up messages module for your project.",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ZitRos/toaster-js.git"
+  },
+  "scripts": {
+    "build": "npm run webpack -- -p",
+    "webpack": "webpack"
   },
   "keywords": [
     "toast",
@@ -24,5 +28,11 @@
   "bugs": {
     "url": "https://github.com/ZitRos/toaster-js/issues"
   },
-  "homepage": "https://github.com/ZitRos/toaster-js#readme"
+  "homepage": "https://github.com/ZitRos/toaster-js#readme",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
+    "webpack": "^2.3.3"
+  }
 }

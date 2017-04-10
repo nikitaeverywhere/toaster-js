@@ -14,17 +14,22 @@ and other virtual-dom frameworks.
 Preview
 -------
 
+#### [See the demo here.](https://zitros.github.io/toaster-js)
+
 ![Screenshot](https://cloud.githubusercontent.com/assets/4989256/14760552/9480e966-094f-11e6-9425-739e000ffbd2.png)
 
 Features
 --------
 
 + Simple CSS-animated customizable toast pop-ups for any design;
++ No dependencies and `< 1kb` code; 
 + Toasts have different types and apply any style you need;
 + Toasts appear and disappear by specifying optional timeout.
 
 Installation & Usage
 --------------------
+
+Toaster-JS is primarily ES6 module. See it in action:
 
 ```bash
 npm install toaster-js --save-dev
@@ -52,6 +57,17 @@ import { configureToasts } from "toaster-js";
 configureToasts({
     topOrigin: 0
 });
+```
+
+If you need to load ES5 (UMD) module, use the following:
+
+```javascript
+var Toast = require("toaster-js/umd.js");
+```
+
+If you need the module with a script tag, use this:
+```html
+<script type="text/javascript" src="https://cdn.rawgit.com/ZitRos/toaster-js/master/umd.js"></script>
 ```
 
 API
@@ -91,4 +107,14 @@ Allows to configure some options of the toast. The available optional options ar
 configureToasts({
     topOrigin: -100 // [default=0] Y-axis origin of the messages. 
 });
+```
+
+Contributing
+------------
+
+Feel free to help improving the project. Building the `umd.js` module:
+
+```bash
+npm install
+npm run build
 ```
