@@ -16,7 +16,7 @@ Preview
 
 #### [See the demo here.](https://zitros.github.io/toaster-js)
 
-![Screenshot](https://cloud.githubusercontent.com/assets/4989256/14760552/9480e966-094f-11e6-9425-739e000ffbd2.png)
+![Screenshot](https://user-images.githubusercontent.com/4989256/29067281-bda23354-7c3a-11e7-83e6-0134711d4b04.png)
 
 Features
 --------
