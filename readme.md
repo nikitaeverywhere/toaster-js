@@ -43,7 +43,12 @@ import "toaster-js/default.scss"; // Assuming CSS/SCSS loader is present
 // Or just copy default styles to your project from node_modules/toaster-js/default.*css. 
 
 new Toast("Welcome!");
-new Toast("There is no more toasts!", Toast.TYPE_ERROR, Toast.TIME_NORMAL);
+new Toast("There is a lot of toasts!", Toast.TYPE_ERROR, Toast.TIME_NORMAL);
+
+let element = document.createElement("div");
+element.textContent = "You can pass any HTML elements to Toast. Clicking on this one deletes it!";
+let newToast = new Toast(element, Toast.TYPE_MESSAGE);
+element.addEventListener("click", () => newToast.delete()); // delete a toast on message click!
 ```
 
 You can set up additional options if you need. See the [API](#api) section below for more details.
@@ -74,7 +79,7 @@ If you need to include the module with a script tag (for example, for demos), us
 API
 ---
 
-+ [toast = new Toast(message, type, timeout)](#toastmessage-type-timeout)
++ [toast = new Toast(content, type, timeout)](#toastmessage-type-timeout)
     + `Toast.TIME_SHORT` (2000 ms)
     + `Toast.TIME_NORMAL` (4000 ms)
     + `Toast.TIME_LONG` (8000 ms, default)
@@ -89,11 +94,11 @@ API
     + `options.deleteDelay = 300` - A `number` representing delay in milliseconds. When toast is deleted, it stays in DOM for `deleteDelay` more milliseconds. Useful with CSS animations.
 + `deleteAllToasts()` - Deletes all toasts on the screen.
 
-##### Toast(message, type, timeout)
+##### Toast(content, type, timeout)
 
-Creates a new toast pop-up message on the screen. Pass a string `message` to specify the message 
-text, `type` = `Toast.TYPE_*` to specify the type and `timeout` = `Toast.TIME_*` to specify the 
-timeout. Timeout constants are the numbers of milliseconds for message to stay on screen. For 
+Creates a new toast notification message on the screen. Pass a string `content` to specify the 
+message text, `type` = `Toast.TYPE_*` to specify the type and `timeout` = `Toast.TIME_*` to specify
+the timeout. Timeout constants are the numbers of milliseconds for message to stay on screen. For 
 example, `new Toast("Baked!", Toast.TYPE_ERROR, 10000)` message will stay on the screen for 10 
 seconds.
 
@@ -105,6 +110,9 @@ seconds.
 + `TYPE_WARNING` = `"warning"`
 + `TYPE_ERROR` = `"error"`
 + `TYPE_DONE` = `"done"`
+
+When `content` is a valid DOM `Element`, it will be attached to the message's body directly, 
+allowing you to customize toast however you want.
 
 ##### configureToasts(options)
 

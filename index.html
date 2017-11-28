@@ -77,15 +77,45 @@
             font-size: 10pt;
             opacity: .5;
         }
+
+        .little-cross {
+            position: absolute;
+            right: 0;
+            top: -5px;
+            display: inline-block;
+            float: right;
+            font-family: monospace;
+            font-size: 15px;
+            cursor: pointer;
+            color: gray;
+            text-shadow: none;
+        }
+
+        .little-cross:after {
+            content: "x";
+        }
     </style>
     <script type="text/javascript">
         function init () {
             document.getElementById("showButton").addEventListener("click", function () {
-                new Toast(
-                    document.getElementById("messageInput").value,
+
+            	let element = document.createElement("div"),
+                    text = document.createElement("span"),
+                    littleCross = document.createElement("span");
+
+            	text.textContent = document.getElementById("messageInput").value;
+	            littleCross.className = "little-cross";
+	            element.appendChild(littleCross);
+	            element.appendChild(text);
+
+                let toast = new Toast(
+	                element,
                     document.getElementById("typeSelect").value,
                     document.getElementById("timeoutInput").value
                 );
+
+	            littleCross.addEventListener("click", function () { toast.delete() });
+
             });
 	        document.getElementById("deleteAllButton").addEventListener("click", function () {
 		        deleteAllToasts();

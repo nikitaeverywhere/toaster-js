@@ -32,7 +32,7 @@ export function deleteAllToasts () {
 
 /**
  * On-screen toast message.
- * @param {string} text - Message text.
+ * @param {string|Element} text - Message text.
  * @param {string} [type] - Toast.TYPE_*
  * @param {number} [timeout] - Toast.TIME_*
  * @constructor
@@ -45,7 +45,11 @@ export function Toast (text = `No text!`, type = Toast.TYPE_INFO, timeout = Toas
     el1.className = "toast";
     el2.className = `body ${type}`;
     el1.appendChild(el2);
-    el2.innerHTML = `${text}`;
+    if (text instanceof Element) {
+        el2.appendChild(text);
+    } else {
+	    el2.textContent = `${text}`;
+    }
 
     this.element = el1;
     this.position = 0;

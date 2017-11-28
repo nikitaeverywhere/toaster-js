@@ -15,6 +15,7 @@
     opacity: 1;
     transform: translate(0, 0); }
   .toast > .body {
+    position: relative;
     font-size: initial;
     margin: 0 1em 1em 1em;
     padding: .5em;
