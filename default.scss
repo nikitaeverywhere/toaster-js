@@ -8,6 +8,7 @@
 }
 
 $messagesAlpha: .9;
+$animationsTime: .3s;
 
 .toast {
 
@@ -17,15 +18,21 @@ $messagesAlpha: .9;
     z-index: 10000;
     max-width: 100%;
     opacity: 0;
+    transform: translate(75%, 0);
     pointer-events: none;
-    @include transition(all .3s ease);
+
+    @include transition(
+        all $animationsTime ease,
+        transform $animationsTime cubic-bezier(0.645, 0.045, 0.355, 1)
+    );
 
     &.displayed {
         opacity: 1;
+        transform: translate(0, 0);
     }
 
     &.deleted {
-        opacity: 0;
+        // same as original
     }
 
     > .body {

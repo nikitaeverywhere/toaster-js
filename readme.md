@@ -5,11 +5,10 @@
 [![npm](https://img.shields.io/npm/dm/toaster-js.svg)](https://www.npmjs.com/package/toaster-js)
 [![License](https://img.shields.io/github/license/zitros/toaster-js.svg)](LICENSE)
 
-The vanilla JavaScript ES6 minimalistic easy-to-use toast pup-up messages module.
-The solution which "just works" – add the module to your project and go further.
+The simple vanilla JavaScript toast pop-up notifications module, which is fully CSS-customizable.
+The solution which "just works": add the module to your project and go further.
 
-Supported by all major browsers and IE 10+ (requestAnimationFrame support). Safe to use with ReactJS
-and other virtual-dom frameworks.
+Supported by all major browsers. Safe to use with ReactJS and other virtual-dom frameworks.
 
 Preview
 -------

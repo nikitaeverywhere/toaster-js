@@ -5,15 +5,15 @@
   z-index: 10000;
   max-width: 100%;
   opacity: 0;
+  transform: translate(75%, 0);
   pointer-events: none;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease; }
+  -webkit-transition: all 0.3s ease, transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -moz-transition: all 0.3s ease, transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.3s ease, transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.3s ease, transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1); }
   .toast.displayed {
-    opacity: 1; }
-  .toast.deleted {
-    opacity: 0; }
+    opacity: 1;
+    transform: translate(0, 0); }
   .toast > .body {
     font-size: initial;
     margin: 0 1em 1em 1em;
