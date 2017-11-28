@@ -11,6 +11,7 @@ Toast.TIME_NORMAL = 4000;
 Toast.TIME_LONG = 8000;
 
 let options = {
+	deleteDelay: 300,
     topOrigin: 0
 };
 
@@ -19,7 +20,7 @@ let options = {
  * @param newOptions
  */
 export function configureToasts (newOptions = {}) {
-    options = Object.assign(options, newOptions);
+    Object.assign(options, newOptions);
 }
 
 /**
@@ -103,7 +104,7 @@ Toast.prototype.detach = function () {
                 return;
             self.element.parentNode.removeChild(self.element);
         });
-    }, 300);
+    }, options.deleteDelay);
 
 };
 

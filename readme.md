@@ -85,7 +85,8 @@ API
     + `Toast.TYPE_DONE`
     + `toast.delete()` - Deletes this toast from the DOM.
 + [configureToasts(options)](#configuretoastsoptions)
-    + `options.topOrigin` - A `number` in pixels of toasts Y-axis origin (negative values move toasts up).
+    + `options.topOrigin = 0` - A `number` in pixels of toasts Y-axis origin (negative values move toasts up).
+    + `options.deleteDelay = 300` - A `number` representing delay in milliseconds. When toast is deleted, it stays in DOM for `deleteDelay` more milliseconds. Useful with CSS animations.
 
 ##### Toast(message, type, timeout)
 
@@ -110,7 +111,8 @@ Allows to configure some options of the toast. The available optional options ar
 
 ```js
 configureToasts({
-    topOrigin: -100 // [default=0] Y-axis origin of the messages. 
+    topOrigin: -100, // [default=0] Y-axis origin of the messages.
+    deleteDelay: 300 // time until the toast is completely removed from the DOM after deleting. 
 });
 ```
 
