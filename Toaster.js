@@ -1,4 +1,4 @@
-//! Do not import this module to the application! Import index.js instead.
+// Do not import this module to the application! Import index.js instead.
 
 /**
  * @type {Toaster}

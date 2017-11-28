@@ -32,7 +32,7 @@ Installation & Usage
 Toaster-JS is primarily ES6 module. See it in action:
 
 ```bash
-npm install toaster-js --save-dev
+npm install toaster-js
 ```
 
 ```javascript
@@ -62,45 +62,50 @@ configureToasts({
 If you need to load ES5 (UMD) module, use the following:
 
 ```javascript
-var Toast = require("toaster-js/umd.js");
+let Toast = require("toaster-js/umd.js");
 ```
 
 If you need the module with a script tag, use this:
+
 ```html
-<script type="text/javascript" src="https://cdn.rawgit.com/ZitRos/toaster-js/master/umd.js"></script>
+<script type="text/javascript" src="https://unpkg.com/toaster-js/umd.js"></script>
 ```
 
 API
 ---
 
-+ [Toast(message, type, timeout)](#toastmessage-type-timeout)
-    + [TIME_SHORT](#time-short)
-    + [TIME_NORMAL](#time-normal)
-    + [TIME_LONG](#time-long)
-    + [TYPE_INFO](#type-info)
-    + [TYPE_MESSAGE](#type-message)
-    + [TYPE_WARNING](#type-warning)
-    + [TYPE_ERROR](#type-error)
-    + [TYPE_DONE](#type-done)
++ [toast = new Toast(message, type, timeout)](#toastmessage-type-timeout)
+    + `Toast.TIME_SHORT` (2000 ms)
+    + `Toast.TIME_NORMAL` (4000 ms)
+    + `Toast.TIME_LONG` (8000 ms, default)
+    + `Toast.TYPE_INFO`
+    + `Toast.TYPE_MESSAGE`
+    + `Toast.TYPE_WARNING`
+    + `Toast.TYPE_ERROR`
+    + `Toast.TYPE_DONE`
+    + `toast.delete()` - Deletes this toast from the DOM.
 + [configureToasts(options)](#configuretoastsoptions)
+    + `options.topOrigin` - A `number` in pixels of toasts Y-axis origin (negative values move toasts up).
 
 ##### Toast(message, type, timeout)
+
 Creates a new toast pop-up message on the screen. Pass a string `message` to specify the message 
 text, `type` = `Toast.TYPE_*` to specify the type and `timeout` = `Toast.TIME_*` to specify the 
 timeout. Timeout constants are the numbers of milliseconds for message to stay on screen. For 
 example, `new Toast("Baked!", Toast.TYPE_ERROR, 10000)` message will stay on the screen for 10 
 seconds.
 
-+ TIME_SHORT = 2 seconds
-+ TIME_NORMAL = 4 seconds
-+ TIME_LONG = 8 seconds
-+ TYPE_INFO = "info"
-+ TYPE_MESSAGE = "message"
-+ TYPE_WARNING = "warning"
-+ TYPE_ERROR = "error"
-+ TYPE_DONE = "done"
++ `TIME_SHORT` = 2 seconds
++ `TIME_NORMAL` = 4 seconds
++ `TIME_LONG` = 8 seconds
++ `TYPE_INFO` = `"info"`
++ `TYPE_MESSAGE` = `"message"`
++ `TYPE_WARNING` = `"warning"`
++ `TYPE_ERROR` = `"error"`
++ `TYPE_DONE` = `"done"`
 
 ##### configureToasts(options)
+
 Allows to configure some options of the toast. The available optional options are listed below:
 
 ```js

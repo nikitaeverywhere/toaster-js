@@ -48,7 +48,7 @@ export function Toast (text = `No text!`, type = Toast.TYPE_INFO, timeout = Toas
 }
 
 /**
- * Attaches toast to GUI and returns the height of the element.
+ * Attaches toast to DOM and returns the height of the element.
  */
 Toast.prototype.attach = function (position) {
 
@@ -85,6 +85,9 @@ Toast.prototype.updateVisualPosition = function () {
 
 };
 
+/**
+ * Removes toast from DOM.
+ */
 Toast.prototype.detach = function () {
 
     let self = this;
@@ -101,5 +104,11 @@ Toast.prototype.detach = function () {
             self.element.parentNode.removeChild(self.element);
         });
     }, 300);
+
+};
+
+Toast.prototype.delete = function () {
+
+    toaster.remove(this);
 
 };
