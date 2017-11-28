@@ -87,6 +87,9 @@
                     document.getElementById("timeoutInput").value
                 );
             });
+	        document.getElementById("deleteAllButton").addEventListener("click", function () {
+		        deleteAllToasts();
+	        });
         }
     </script>
 </head>
@@ -118,6 +121,7 @@
                     <input id="timeoutInput" type="number" value="8000"/>
                 </label>
                 <button id="showButton">Show Toast!</button>
+                <button id="deleteAllButton">Delete All</button>
             </div>
         </div>
     </div>

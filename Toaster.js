@@ -66,3 +66,8 @@ Toaster.prototype.remove = function (toast) {
 	this.toasts.slice(0, index).forEach(t => t.seek(-height));
 
 };
+
+Toaster.prototype.removeAll = function () {
+	while (this.toasts.length > 0)
+		this.remove(this.toasts[0]);
+};

@@ -49,12 +49,13 @@ new Toast("There is no more toasts!", Toast.TYPE_ERROR, Toast.TIME_NORMAL);
 You can set up additional options if you need. See the [API](#api) section below for more details.
 
 ```javascript
-import { configureToasts } from "toaster-js";
+import { configureToasts, deleteAllToasts } from "toaster-js";
 
 configureToasts({
     topOrigin: 0,
     deleteDelay: 300
 });
+deleteAllToasts(); // just deletes all toasts on the screen
 ```
 
 If you need to load ES5 (UMD) module, use the following:
@@ -86,6 +87,7 @@ API
 + [configureToasts(options)](#configuretoastsoptions)
     + `options.topOrigin = 0` - A `number` in pixels of toasts Y-axis origin (negative values move toasts up).
     + `options.deleteDelay = 300` - A `number` representing delay in milliseconds. When toast is deleted, it stays in DOM for `deleteDelay` more milliseconds. Useful with CSS animations.
++ `deleteAllToasts()` - Deletes all toasts on the screen.
 
 ##### Toast(message, type, timeout)
 

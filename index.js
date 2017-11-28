@@ -24,6 +24,13 @@ export function configureToasts (newOptions = {}) {
 }
 
 /**
+ * Delete all toast currently displayed.
+ */
+export function deleteAllToasts () {
+    return toaster.removeAll();
+}
+
+/**
  * On-screen toast message.
  * @param {string} text - Message text.
  * @param {string} [type] - Toast.TYPE_*
