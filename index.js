@@ -80,7 +80,7 @@ Toast.prototype.seek = function (delta) {
 Toast.prototype.updateVisualPosition = function () {
 
     requestAnimationFrame(() => {
-        this.element.style.bottom = -options.topOrigin + this.position + "px"
+        this.element.style.bottom = -options.topOrigin + this.position + "px";
     });
 
 };
@@ -96,6 +96,8 @@ Toast.prototype.detach = function () {
     });
     setTimeout(() => {
         requestAnimationFrame(() => {
+            if (!self.element || !self.element.parentNode)
+                return;
             self.element.parentNode.removeChild(self.element);
         });
     }, 300);

@@ -17,6 +17,12 @@ function Toaster () {
      */
     this.toasts = [];
 
+	/**
+     * Keeps the timeouts of toasts which are removed.
+	 * @type {Map}
+	 */
+	this.timeouts = new Map();
+
 }
 
 /**
@@ -26,6 +32,7 @@ function Toaster () {
 Toaster.prototype.push = function (toast, timeout) {
 
     requestAnimationFrame(() => {
+
         let height = toast.attach(0);
 
         this.toasts.forEach((toast) => {
@@ -33,12 +40,27 @@ Toaster.prototype.push = function (toast, timeout) {
         });
         this.toasts.push(toast);
 
-        setTimeout(() => {
-            let index = this.toasts.indexOf(toast),
-                tst = this.toasts.splice(index, 1)[0];
-            tst.detach();
-            this.toasts.slice(0, index).forEach(t => t.seek(-height));
-        }, timeout);
+        this.timeouts.set(toast, setTimeout(() => this.remove(toast), timeout));
+
     });
+
+};
+
+/**
+ * @param {Toast} toast
+ */
+Toaster.prototype.remove = function (toast) {
+
+	const index = this.toasts.indexOf(toast);
+	const tst = this.toasts.splice(index, 1)[0];
+	const height = toast.element.offsetHeight;
+
+	if (this.timeouts.has(toast)) {
+	    clearTimeout(this.timeouts.get(toast));
+		this.timeouts.delete(toast);
+    }
+
+	tst.detach();
+	this.toasts.slice(0, index).forEach(t => t.seek(-height));
 
 };
