@@ -51,14 +51,16 @@ Toaster.prototype.push = function (toast, timeout) {
  */
 Toaster.prototype.remove = function (toast) {
 
+	if (this.timeouts.has(toast)) {
+		clearTimeout(this.timeouts.get(toast));
+		this.timeouts.delete(toast);
+	} else {
+		return; // already deleted
+	}
+
 	const index = this.toasts.indexOf(toast);
 	const tst = this.toasts.splice(index, 1)[0];
 	const height = toast.element.offsetHeight;
-
-	if (this.timeouts.has(toast)) {
-	    clearTimeout(this.timeouts.get(toast));
-		this.timeouts.delete(toast);
-    }
 
 	tst.detach();
 	this.toasts.slice(0, index).forEach(t => t.seek(-height));

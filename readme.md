@@ -29,33 +29,32 @@ Features
 Installation & Usage
 --------------------
 
-Toaster-JS is primarily ES6 module. See it in action:
+Toaster-JS is primarily ES6 module. Install it with NPM:
 
 ```bash
 npm install toaster-js
 ```
 
+Then, include it to your project:
+
 ```javascript
 import { Toast } from "toaster-js";
+import "toaster-js/default.scss"; // Assuming CSS/SCSS loader is present
+// Import styles from SCSS: @import "../node_modules/toaster-js/default.scss";
+// Or just copy default styles to your project from node_modules/toaster-js/default.*css. 
 
 new Toast("Welcome!");
 new Toast("There is no more toasts!", Toast.TYPE_ERROR, Toast.TIME_NORMAL);
 ```
 
-You can import pre-defined css/scss styles for your toasts. 
-There are two files (css/scss) available.
-
-```javascript
-import "toaster-js/default.scss"; // or @import "../node_modules/toaster-js/default.scss"; from SCSS
-```
-
-You can set up additional options if you need. See the API below.
+You can set up additional options if you need. See the [API](#api) section below for more details.
 
 ```javascript
 import { configureToasts } from "toaster-js";
 
 configureToasts({
-    topOrigin: 0
+    topOrigin: 0,
+    deleteDelay: 300
 });
 ```
 
@@ -65,10 +64,11 @@ If you need to load ES5 (UMD) module, use the following:
 let Toast = require("toaster-js/umd.js");
 ```
 
-If you need the module with a script tag, use this:
+If you need to include the module with a script tag (for example, for demos), use this:
 
 ```html
 <script type="text/javascript" src="https://unpkg.com/toaster-js/umd.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/toaster-js/default.css"/>
 ```
 
 API
@@ -116,12 +116,34 @@ configureToasts({
 });
 ```
 
+Styles
+------
+
+Import default toast styles from `node_modules/toaster-js/default.*css` (CSS, SCSS are available).
+
+To style the toast properly, consider that toast elements (for example, `info` toasts) have three 
+states: empty state (when the toast attaches to the DOM), `displayed` state (when the toast is moved
+to its proper position), and `deleted` state, when the toast "fades out" from the DOM. You can 
+control how much time the toast stays in `deleted` state until it disappears using 
+[deleteDelay](#api) option. States:
+
+```html
+<div class="toast">           <div class="body info">...</div> </div>
+<div class="toast displayed"> <div class="body info">...</div> </div>
+<div class="toast deleted">   <div class="body info">...</div> </div>
+```
+
 Contributing
 ------------
 
-Feel free to help improving the project. Building the `umd.js` module:
+Feel free to improve this project! Building the `umd.js` and `default.css` requires the following:
 
 ```bash
 npm install
 npm run build
 ```
+
+License
+-------
+
+MIT © [Nikita Savchenko](https://nikita.tk)

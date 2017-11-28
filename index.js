@@ -39,7 +39,6 @@ export function Toast (text = `No text!`, type = Toast.TYPE_INFO, timeout = Toas
     el2.className = `body ${type}`;
     el1.appendChild(el2);
     el2.innerHTML = `${text}`;
-    el1.style.opacity = 0;
 
     this.element = el1;
     this.position = 0;
@@ -57,7 +56,7 @@ Toast.prototype.attach = function (position) {
     this.updateVisualPosition();
     document.body.appendChild(this.element);
     requestAnimationFrame(() => {
-        this.element.style.opacity = 1;
+	    this.element.classList.add("displayed");
     });
 
     return this.element.offsetHeight;
@@ -96,7 +95,8 @@ Toast.prototype.detach = function () {
     if (!this.element.parentNode) return;
 
     requestAnimationFrame(() => {
-        this.element.style.opacity = 0;
+	    this.element.classList.remove("displayed");
+        this.element.classList.add("deleted");
     });
     setTimeout(() => {
         requestAnimationFrame(() => {
