@@ -21,15 +21,15 @@ Preview
 Features
 --------
 
-+ Simple CSS-animated customizable toast pop-ups for any design;
-+ No dependencies and `< 1kb` code; 
-+ Toasts have different types and apply any style you need;
-+ Toasts appear and disappear by specifying optional timeout.
++ Fully CSS-customizable toast pop-ups for any design;
++ No dependencies and `< 1kb` code;
++ Configurable toasts type and timeout;
++ Fully configurable toast content (HTML, custom elements, etc).
 
 Installation & Usage
 --------------------
 
-Toaster-JS is primarily ES6 module. Install it with NPM:
+Toaster-JS is primarily the uncompiled ES6 module. Install it with npm:
 
 ```bash
 npm install toaster-js
@@ -38,14 +38,19 @@ npm install toaster-js
 Then, include it to your project:
 
 ```javascript
-import { Toast } from "toaster-js";
+import { Toast } from "toaster-js"; // const { Toast } = require("toaster-js/umd.js");
 import "toaster-js/default.scss"; // Assuming CSS/SCSS loader is present
 // Import styles from SCSS: @import "../node_modules/toaster-js/default.scss";
 // Or just copy default styles to your project from node_modules/toaster-js/default.*css. 
+// Or draw your own styles! For instance, you can make toasts appear on the left by overwriting .toast { left: 0; right: auto; }
 
+// Simple toast
 new Toast("Welcome!");
+
+// Typed toast (just a matter of CSS) with timeout
 new Toast("There is a lot of toasts!", Toast.TYPE_ERROR, Toast.TIME_NORMAL);
 
+// Custom toast content example (you can also add something like close buttons, etc)
 let element = document.createElement("div");
 element.textContent = "You can pass any HTML elements to Toast. Clicking on this one deletes it!";
 let newToast = new Toast(element, Toast.TYPE_MESSAGE);
@@ -67,7 +72,7 @@ deleteAllToasts(); // just deletes all toasts on the screen
 If you need to load ES5 (UMD) module, use the following:
 
 ```javascript
-let Toast = require("toaster-js/umd.js");
+const { Toast } = require("toaster-js/umd.js");
 ```
 
 If you need to include the module with a script tag (for example, for demos), use this:
@@ -121,7 +126,7 @@ Allows to configure some options of the toast. The available optional options ar
 
 ```js
 configureToasts({
-    topOrigin: -100, // [default=0] Y-axis origin of the messages.
+    topOrigin: -100, // [default=0] Y-axis origin of the messages (better to use CSS `transform` instead).
     deleteDelay: 300 // time until the toast is completely removed from the DOM after deleting. 
 });
 ```
@@ -138,9 +143,9 @@ control how much time the toast stays in `deleted` state until it disappears usi
 [deleteDelay](#api) option. States:
 
 ```html
-<div class="toast">           <div class="body info">...</div> </div>
+<div class="toast">        <div class="body warning">...</div> </div>
 <div class="toast displayed"> <div class="body info">...</div> </div>
-<div class="toast deleted">   <div class="body info">...</div> </div>
+<div class="toast deleted">   <div class="body done">...</div> </div>
 ```
 
 Contributing
@@ -156,4 +161,4 @@ npm run build
 License
 -------
 
-MIT © [Nikita Savchenko](https://nikita.tk)
+MIT © [Nikita Savchenko](https://nikita.tk/developer)
