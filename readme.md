@@ -2,6 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/toaster-js.svg)](https://www.npmjs.com/package/toaster-js)
 [![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)](http://npm.anvaka.com/#/view/2d/toaster-js)
+[![BundleSize](https://img.shields.io/bundlephobia/minzip/toaster-js)](https://zitros.github.io/npm-explorer/?p=toaster-js)
 [![npm](https://img.shields.io/npm/dm/toaster-js.svg)](https://www.npmjs.com/package/toaster-js)
 [![License](https://img.shields.io/github/license/zitros/toaster-js.svg)](LICENSE)
 
