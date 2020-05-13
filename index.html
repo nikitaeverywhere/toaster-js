@@ -91,6 +91,26 @@
             text-shadow: none;
         }
 
+        .table {
+            display: table;
+            width: 100%;
+        }
+
+        .row {
+            display: table-row;
+        }
+
+        .column {
+            display: table-cell;
+            text-align: left;
+            border-bottom: 14px solid transparent;
+        }
+
+        .column input:not([type=checkbox]), .column select {
+            width: 100px;
+            box-sizing: border-box;
+        }
+
         .little-cross:after {
             content: "x";
         }
@@ -104,8 +124,10 @@
                     littleCross = document.createElement("span");
 
             	text.textContent = document.getElementById("messageInput").value;
-	            littleCross.className = "little-cross";
-	            element.appendChild(littleCross);
+                littleCross.className = "little-cross";
+                if (document.getElementById("canBeClosedInput") && document.getElementById("canBeClosedInput").checked) {
+                    element.appendChild(littleCross);
+                }
 	            element.appendChild(text);
 
                 let toast = new Toast(
@@ -136,20 +158,32 @@
                 <label>
                     <textarea id="messageInput">This is my awesome message!</textarea>
                 </label>
-                <label>
-                    Message type:
-                    <select id="typeSelect">
-                        <option value="info">Info</option>
-                        <option value="message">Message</option>
-                        <option value="warning">Warning</option>
-                        <option value="error">Error</option>
-                        <option value="done">Done</option>
-                    </select>
-                </label>
-                <label>
-                    Timeout:
-                    <input id="timeoutInput" type="number" value="8000"/>
-                </label>
+                <div class="table">
+                    <div class="row">
+                        <div class="column">Message type</div>
+                        <div class="column">
+                            <select id="typeSelect">
+                                <option value="info">Info</option>
+                                <option value="message">Message</option>
+                                <option value="warning">Warning</option>
+                                <option value="error">Error</option>
+                                <option value="done">Done</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">Timeout</div>
+                        <div class="column">
+                            <input id="timeoutInput" type="number" value="8000"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">Can be closed?</div>
+                        <div class="column">
+                            <input id="canBeClosedInput" type="checkbox"/> 
+                        </div>
+                    </div>
+                </div>
                 <button id="showButton">Show Toast!</button>
                 <button id="deleteAllButton">Delete All</button>
             </div>
